@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  /* height: 2000px; */
+}
+h1 {
+  text-align: center;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+}
+.container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Để tạo khoảng cách với phần ghi chú */
+  /* display: none; */
+  /* visibility: hidden; */
+  position: relative;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+td::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  margin-top: 10px;
+}
+th {
+  background-color: #f2f2f2;
+}
+.note {
+  /* position: absolute;
+  top: 100px;
+  left: 25px; */
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  text-shadow: 5px 5px 10px rgb(0, 10, 255);
+  /* visibility: hidden; */
+  overflow: auto;
+  height: 50px;
+}
+.container {
+  position: relative;
+  box-shadow: 5px 5px 10px rgb(0, 10, 255);
+}
+.image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+/* .highlight-row {
+  position: relative;
+  top: 100px;
+  left: 30px;
+} */
+
+/*
+    Định vị phần tử và các kiểu định vị trong CSS:
+
+    position: static; 
+    // giá trị mặc định, thực hiện theo luồng bình thường (trên -> dưới), không thực hiện được các thuộc tính (top-right-bottom-left).
+    
+    position: relative;
+    // Phần tử có giá trị relative thì vị trí của nó được định vị dựa trên vị trí ban đầu của nó.
+    // Các thuộc tính (top-right-bottom-left) sẽ hoạt động. -> dịch chuyển phần tử so với vị trí ban đầu của nó.
+
+    position: absolute;
+    // Phần tử có giá trị absolute thì vị trí của nó dựa trên phần tử cha gần nhất có position khác static(relative, absolute, fixed).
+    // nếu như không tìm thấy thằng cha, nó sẽ định vị so với viewport. (khung trình duyệt).
+    // Phần tử cha gần nhất của nó là "ngữ cảnh định vị".
+    //  Các thuộc tính (top-right-bottom-left) sẽ hoạt động.
+    // Thường mình sẽ kết hợp với relative.
+
+    position: fixed;
+    // Định vị tuyệt đối so với viewport (khung trình duyệt). -> nghĩa là ngữ cảnh luôn phụ thuộc viewport.
+    // Phần tử sẽ cố định tại vị trí ngay cả khi mình cuộn trang.
+    // Các thuộc tính (top-right-bottom-left) sẽ hoạt động.
+    // Thường dùng cho thanh header, footer, nút back to top,...
+*/
+
+/* 
+    Pseudo-elements ::before và ::after
+    // Cho phép mình tạo ra các "phần tử giả" để thêm kiểu dáng hoặc nội dung vào một phần tử hiện có mà không cần thêm vào HTML.
+    // before: tạo ra một phần tử giả ngay trước nội dung thực tế của phần tử được chọn.
+    // after: tạo ra một phần tử giả ngay sau nội dung thực tế của phần tử được chọn.
+    // Thuộc tính content: bắt buộc phải có trong after và before. Dùng để thêm nội dung vào phần tủ giả. (content: "")
+
+    pseudo-classes: :active, :hover, :focus,...    
+*/
+
+/* 
+    Box shadow: tạo độ bóng cho khung quanh phần tử, text shadow: tạo độ bóng cho chữ
+    box-shadow: offset-x offset-y blur-radius spread-radius color inset;
+    // offset-x: độ dịch ngang của bóng(dương sang phải, âm sang trái).
+    // offset-y: độ dịch dọc của bóng (dương xuống dưới, âm xuống trên).
+    // blur-radius: độ mờ của bóng.
+    // spread-radius: (tuỳ chọn) độ lan rộng của bóng
+    // color: màu bóng.
+    // inset: (tuỳ chọn) tạo bóng đổ trên phần tử.
+
+
+    text-shadow: offset-x offset-y blur-radius color;
+*/
+
+/* 
+    Visibility: điều khiển ẩn/hiện phần tử và overflow
+    visibility: visible (mặc định) -> phần tử hiện bình thường.
+    visibility: hidden -> phần tử bị ẩn, vẫn chiếm chỗ trong bố cục.
+
+    overflow: xử lý nội dung tràn tràn ra ngoài phần tử chứa.
+    overflow: visible; (mặc định)
+    overflow: hidden; -> Nội dung tràn bị cắt bớt và ẩn đi.
+    overflow: scroll; -> sẽ hiển thị thanh cuộn. (ngay cả nội dung chưa bị tràn)
+    overflow: auto; -> hiển thị thanh cuộc (khi nội dung bị tràn)
+    overflow-x, overflow-y: chỉ áp dụng overflow cho trục x hoặc trục y.
+*/
+
+/* 
+    object-fit: fill (mặc định), hình ảnh sẽ kéo dãn theo container , có thể bị méo mó hình ảnh.
+    object-fit: contain, hình ảnh thu nhỏ sẽ nằm gọn trong container, giữ nguyên tỷ lệ khung hình. 
+                có thể xuất hiện khoảng trống (padding) xung quanh hình ảnh nếu tỷ lệ khung hình ko khớp vơi container,
+    object-fit: cover, lấp dầy khoảng trống container, cắt xén phần thừa để vừa vặn, giữ nguyên tỷ lệ khung hình.
+
+*/
+
+/* 
+    z-index: thứ tự xếp chồng cho các thẻ HTML.
+    // Giá trị của z-index: là 1 số nguyên, giá trị càng cao thì phần tử càng nằm phía trên. (giá trị âm cũng chấp nhận được).
+    // z-index chỉ có tác dụng khi em dùng position: absolute, relative, fixed.
+*/

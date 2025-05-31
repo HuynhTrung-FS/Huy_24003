@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css-style.css" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        color: green;
+        /* background-color: yellow; */
+        border-width: 2px;
+        border-style: solid;
+        /*solid: đường nét liền, dashed: đuòngw gạch ngang, dotted: đường chấm chấm, double: đường đôi, none: không có đường viền.*/
+        border-color: red;
+        border-top: 10px; /* border-bottom, border-left, border-right*/
+        border-top-width: 10px; /*border-top-style, border-top-color*/
+        border: 2px solid black; /*độ dày: 2px, kiểu : nét liền, màu: black*/
+        background-color: rgba(255, 255, 255, 0.5); /*red-green-blue-alpha*/
+        color: rgb(255, 255, 255);
+        color-scheme: #000000;
+      }
+      h1,
+      h2 {
+        background-color: purple;
+        line-height: 1.5;
+      }
+      .tieude {
+        color: blue !important;
+      }
+      #trung {
+        color: green;
+      }
+      input[type="text"] {
+        color: red;
+      }
+      .container p {
+        color: red;
+      }
+      .container > p {
+        color: blue;
+      }
+      h1 + p {
+        background-color: yellow;
+      }
+      .container div p {
+        color: green;
+      }
+      .container > div > p {
+        color: green;
+      }
+      h1 + p + div {
+        background-color: yellow;
+      }
+      h1:hover {
+        color: orange;
+      }
+      button:active {
+        background-color: red !important;
+      }
+
+      input[type="password"]:focus {
+        color: red;
+        border-color: blue;
+      }
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="tieude" id="trung" style="color: red">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus odio
+      repellendus nam placeat natus cum dolore. Error beatae dolores officiis
+      esse, sunt illo provident deleniti sed eaque nesciunt laborum iusto?
+    </h1>
+    <a href="">Linked List</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div class="container">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
+        temporibus earum deleniti omnis tempora delectus recusandae expedita
+        provident similique, magnam ratione perferendis quo. Exercitationem vero
+        beatae repellat, harum quae itaque.
+      </p>
+      <div>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
+          temporibus earum deleniti omnis tempora delectus recusandae expedita
+          provident similique, magnam ratione perferendis quo. Exercitationem
+          vero beatae repellat, harum quae itaque.
+        </p>
+      </div>
+    </div>
+    <button>click</button>
+    <h2 class="tieude">Trung3</h2>
+    <h1>Trung2</h1>
+    <input type="text" />
+    <input type="password" />
+  </body>
+</html>
+
+<!-- Vai trò của CSS -->
+<!-- Tách biệt nội dung và trình bày -->
+<!-- Tạo giao diện đẹp cho trang web -->
+<!-- Tái sử dụng giao diện -->
+<!-- Thích ứng được với nhiều màn hình (responsive) => rất quan trọng  -->
+
+<!-- Có 3 cách -->
+<!-- inline: Thêm trực tiếp css vào thẻ HTML: <h1 style="color: red;">aa</h1> -->
+<!-- internal: Thêm css vào file html: <style></style> -->
+<!-- external: Thêm css vào file css: <link rel="stylesheet" href="style.css"> -->
+<!-- 
+selector {
+property: value;
+property: value;
+...
+}
+selector: (.class), (#id), tag
+-->
+
+<!-- font-weight: (bold, normal, lighter, 100-900) -->
+
+<!--font family: có 2 kiểu chữ -->
+<!-- serif: phông chữ có chân (Times New Roman, serif, Courier New) -> tài liệu, in ấn, trang web-->
+<!-- sans-serif: phòng chữ không chân (Arial, sans-serif, Helvetica) -> ưu tiên màn hình máy tính , thiệt bị di động -->
+
+<!-- Lớp giả -->
+<!-- :hover : áp dụng khi mình di chuyển vào thẻ html -->
+<!-- :active : áp dụng khi em click vào (kich hoạt) - Thường đi với button -->
+<!-- :focus : áp dụng khi focus vào 1 thẻ (thường là input, textarea, select)  -->
+<!-- :link : áp dụng khi dùng thẻ a-->
+<!-- :visited -->
+
+<!-- Thứ tự ưu tiên  -->
+<!-- 1. inline CSS (1000d)-->
+<!-- 2. ID selectors (100d)-->
+<!-- 3. Class selectors, attribute selectors, pseudo-classes (10d) -->
+<!-- 4. Tag selectors(1) -->
+
+<!-- 
+<style>
+p { color: gray; } /* Tag selector (1 điểm) */
+.text-blue { color: blue; background-color: yellow; } /* Class selector (10 điểm) - Ưu tiên hơn tag selector */
+#paragraph-1 { color: green; background-color: red; } /* ID selector (100 điểm) - Ưu tiên hơn class selector */
+</style>
+<p id="paragraph-1" class="text-blue" style="color: red;"> Đoạn văn bản </p>
+-->
+
+<!-- p < .text-blue < #paragraph-1 < style  -->
+
+<!-- Important: quan trọng -> !important -->

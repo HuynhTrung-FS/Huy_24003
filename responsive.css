@@ -1,0 +1,238 @@
+/* --- Reset & Basic Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* --- Setting the Root Font Size (1rem = 16px by default) --- */
+html {
+  font-size: 100%; /* Hoặc 16px - Đây là cơ sở cho rem */
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  font-size: 1rem; /* Kích thước font cơ bản = 16px */
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.625rem; /* 10px / 16px */
+  margin-bottom: 0.625rem; /* 10px / 16px */
+}
+/* --- Layout Container (Desktop) --- */
+.container {
+  max-width: 68.75rem; /* 1100px / 16px */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem; /* 20px / 16px */
+  display: flex;
+  gap: 1.25rem; /* 20px / 16px */
+}
+/* --- Header (Desktop) --- */
+.site-header {
+  background-color: #4caf50;
+  color: white;
+  padding: 1rem; /* 16px */
+  text-align: center;
+}
+.site-header h1 {
+  margin-bottom: 0.5rem; /* 8px / 16px */
+  font-size: 2.5rem; /* 40px / 16px */
+}
+.site-header nav {
+  text-align: center;
+  margin-top: 0.625rem; /* 10px / 16px */
+}
+.site-header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.9375rem; /* 8px 15px / 16px */
+  display: inline-block;
+  margin: 0 0.3125rem; /* 5px / 16px */
+  background-color: #45a049;
+  border-radius: 0.25rem; /* 4px / 16px */
+  transition: background-color 0.3s ease;
+}
+.site-header nav a:hover {
+  background-color: #367c39;
+}
+/* --- Main Content & Sidebar (Desktop: Side-by-side) --- */
+.site-content {
+  background-color: #f4f4f4;
+  padding: 1.5rem; /* 24px / 16px */
+  flex: 3;
+  border-radius: 0.3125rem; /* 5px / 16px */
+}
+.site-content h2 {
+  color: #4caf50;
+  margin-bottom: 0.5rem; /* 8px / 16px */
+  /* Font size mặc định từ body hoặc có thể set riêng bằng rem */
+  font-size: 1.5rem; /* Ví dụ: 24px / 16px */
+}
+.sidebar {
+  background-color: #e7e7e7;
+  padding: 1.5rem; /* 24px / 16px */
+  flex: 1;
+  border-radius: 0.3125rem; /* 5px / 16px */
+}
+.sidebar h3 {
+  margin-bottom: 0.5rem; /* 8px / 16px */
+  color: #555;
+  font-size: 1.25rem; /* Ví dụ: 20px / 16px */
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li {
+  margin-bottom: 0.5rem; /* 8px / 16px */
+  border-bottom: 1px dotted #ccc; /* border thường dùng px */
+  padding-bottom: 0.5rem; /* 8px / 16px */
+}
+/* --- Footer --- */
+.site-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem; /* 16px / 16px */
+  margin-top: 1.25rem; /* 20px / 16px */
+}
+/* --- ======================================= --- */
+/* --- Responsive Styles (Media Queries - MAX-WIDTH) --- */
+/* --- SẼ ĐƯỢC THÊM VÀO ĐÂY --- */
+/* --- ======================================= --- */
+
+/* Thường để responsive hay dùng:
+- % hoặc Flex box/Grid Layout,
+- ảnh linh hoạt 
+- đơn vị tương đối - rem, em, vw, vh,... 
+- Media Queries
+*/
+
+/* 
+
+em: kích thước của nó phụ thuộc vào thằng kích thước font-size của phần tử cha hiện tại
+
+ví dụ:
+div{
+font-size: 20px;
+}
+
+div p {
+    font-size: 0.5em // 10px
+}
+
+rem: viết tắt của "Root Em"
+là một đơn vị tương đối, giá trị của nó dựa trên font-size của phần tử gốc (root element) , tức là thẻ <html>
+
+Ví dụ: html {font-size: 16px} (mặc định hầu hết trình duyệt), thì:
+- 1 rem = 16px
+- 0.5rem = 8px
+- 1.5rem = 24px
+- 2rem = 32px
+
+
+Lợi ích của nó:
+- khả năng co dãn toàn cục :
+    + Đây là sức mạng chính, bằng cách chỉ cần thay đổi font-size của thẻ html trong Media Queries, => tất cả giá trị liên quan đến rem đều thay đổi theo.
+    + Giúp việc điều chỉnh kích thước màn hình dễ dàng và nhất quán. (thay vì dùng px-> chỉnh tẩt cả, thì mình dùng rem -> thay đổi 1 thì tất cả các tk còn lại theo).
+- Khả năng truy cập:
+    + rem phụ thuộc font-size, nếu ng dùng tăng kích cỡ chữ đọc thì rem thay đổi theo.
+- Tính nhất quán, dễ bảo trì:
+
+- So sánh px, em, rem:
++ pixel: giá trị tuyệt đối. 
+=> dựa trên màn hình
+=> hay dùng cho border, chi tiết nhỏ
++ em: cơ sở tương đối với font-size của phần tử cha hiện tại.
+=> dựa vào font-size cha
+=> co giãn
++ rem: cơ sở tương đối với font-size của thẻ gốc (html)
+=> dựa vào font-size html
+=> co giãn toàn cục
+
+Thuật ngữ global scaling
+*/
+
+/* 
+    Media Queries
+- là một module của CSS3 cho phép áp dụng các bộ quy tắc CSS khác nhau tuỳ thuộc vào điều kiện về thiết bị hiển thị (media device).
+- Đơn giản: giống như câu lệnh if trong lập trình, nhưng dành cho css
+(nếu màn hình rộng tối da 600px, thì những phần tử bên trong như div, p, h1, h2, ... thì áp dụng CSS như nào?).
+- Cho phép mình điều chỉnh layout, font-chữ, màu sắc, ẩn/hiện phần tử, ... dựa trên đặc điểm của thiết bị.
+*/
+
+/* 
+    @media <media-type> ( <media-feature> : <value>) {
+        CSS rules
+        selector{
+            property: value;
+            property: value;
+            ...
+        }
+    }
+    
+    @media: từ khoá để bắt đầu Media Query.
+    <media-type>: loại thiết bị áp dụng. Các giá trị phổ biến:
+        + all: ápp dụng cho mọi thiết bị (thường là mặc định nếu như bỏ qua)
+        + screen: áp dụng màn hình tablet, 
+        + print: áp dụng khi trang được in
+        + speech: áp dụng trình đọc màn hình.
+        => chủ yếu dùng screen hoặc bỏ qua (mặc định là all).
+    <media-feature> : <value> => điều kiện cần kiểm tra.
+        + <media-feature>: đặc tính của thiết bị cần kiếm tra.
+        + <value>: giá trị cần kiếm tra.
+        + Nội dung cơ bản: (ví dụ: 600px, landscape,...)
+
+    Các Media-Feature: 
+    + width: chieu rong màn hình.
+    + height: chieu cao màn hình.
+    + max-width: điều kiện đúng khi chiều rộng nhỏ hơn hoặc bằng giá trị chỉ định (phổ biến cho desktop).
+    + min-width: điều kiện đúng khi chiều rộng lớn hơn hoặc bằng giá trị chỉ định. (ít dùng cho desktop).
+    + orientation: hướng của thiết bị (portrait hoặc landscape).
+
+*/
+/* if manhinh >=600px && manhinh <=900px */
+/* @media screen and (max-width: 600px), print {
+  body {
+    background-color: #822020;
+  }
+} */
+
+@media screen and (max-width: 900px) {
+  body {
+    /* Giảm cỡ chữ cơ bản một chút */
+    font-size: 0.9375rem; /* 15px / 16px */
+  }
+  .container {
+    /* Giảm padding và khoảng cách */
+    padding: 1rem; /* 16px / 16px */
+    gap: 1rem; /* 16px / 16px */
+    /* Có thể giữ nguyên max-width hoặc giảm nhẹ nếu cần */
+    /* max-width: 50rem; */
+  }
+  .site-header h1 {
+    /* Giảm cỡ chữ header */
+    font-size: 2rem; /* 32px / 16px */
+  }
+  .site-header nav a {
+    /* Giảm nhẹ padding nút nav */
+    padding: 0.4375rem 0.75rem; /* 7px 12px / 16px */
+  }
+  .site-content,
+  .sidebar {
+    /* Giảm padding nội dung */
+    padding: 1.125rem; /* 18px / 16px */
+  }
+  /* Các font-size khác như h2, h3 sẽ kế thừa từ body (0.9375rem)
+hoặc giữ nguyên giá trị rem ban đầu nếu đã được set riêng,
+trừ khi bạn cũng muốn ghi đè chúng ở đây. */
+  .site-content h2 {
+    font-size: 1.375rem; /* Ví dụ: 22px / 16px */
+  }
+  .sidebar h3 {
+    font-size: 1.125rem; /* Ví dụ: 18px / 16px */
+  }
+}
