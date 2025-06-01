@@ -1,6 +1,6 @@
 Nhánh (Branch) - tại sao lại cần?
 
-Lợi ích của nhánh
+Lợi ích của nhánh a
 
 - Cô lập thay đổi
 - Làm việc song song
