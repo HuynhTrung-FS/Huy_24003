@@ -13,8 +13,6 @@
 // sibling: nút "anh, chị em" (đồng cấp, chung thằng cha)
 
 // getElementById(id): Tìm theo ID (ID là phải duy nhất)
-var title = document.getElementById("title");
-console.log(title);
 
 // querySelector(selector): Tìm theo thằng class/ hoặc tag (class chính là name)
 // querySelector nó chỉ lấy phần tử đầu tiên của class/ tag (trong vd: class = "name")
